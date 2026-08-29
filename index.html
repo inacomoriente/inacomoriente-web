@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inacom Oriente — Soluciones Integrales de Automatización Industrial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#0099CC;
+  --title:#2E3C4E;
+  --body:#384653;
+  --sky:#75BAE6;
+  --line:#BACFDD;
+  --pill:#D4E9F7;
+  --white:#FFFFFF;
+  --faint:#7C8B96;
+  --f-disp:'Montserrat',sans-serif;
+  --f-body:'Barlow',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--f-body);color:var(--body);background:var(--white);line-height:1.65;font-weight:300;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+section{padding:90px 0;}
+section.alt{background:#F7FAFC;}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+.navwrap{max-width:1180px;margin:0 auto;padding:0 32px;height:82px;display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:66px;height:66px;border-radius:9px;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:2px;}
+.brand-mark svg{width:22px;height:22px;}
+.brand-name{font-family:var(--f-disp);font-weight:700;color:var(--title);font-size:16px;}
+nav{position:relative;}
+nav ul{display:flex;gap:26px;}
+nav > ul > li{position:relative;}
+nav a{font-size:13.5px;font-weight:600;color:var(--body);display:flex;align-items:center;gap:5px;padding:10px 0;}
+nav a:hover{color:var(--accent);}
+nav > ul > li > a.current{color:var(--accent);}
+nav a .caret{font-size:9px;opacity:.6;}
+.navcta{background:var(--accent);color:var(--white)!important;padding:10px 20px;border-radius:8px;}
+.dropdown{
+  display:none;position:absolute;top:100%;left:-14px;background:var(--white);
+  border:1px solid var(--line);border-radius:10px;padding:8px;min-width:220px;
+  box-shadow:0 12px 28px rgba(30,50,70,.12);
+}
+nav > ul > li:hover .dropdown{display:block;}
+.dropdown a{padding:9px 12px;border-radius:7px;font-weight:500;font-size:13px;color:var(--body);}
+.dropdown a:hover{background:var(--pill);color:var(--accent);}
+#menuBtn{display:none;background:none;border:none;font-size:22px;color:var(--title);}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;color:var(--white);background:linear-gradient(180deg,rgba(20,30,45,.55),rgba(20,30,45,.72)),url('assets/img-15.jpg') center/cover no-repeat;}
+.hero .wrap{position:relative;z-index:1;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:20px;margin-bottom:24px;background:rgba(255,255,255,.16);color:var(--white);}
+.eyebrow.light{background:var(--pill);color:var(--accent);}
+h1.hero-title{font-family:var(--f-disp);font-weight:800;font-size:clamp(32px,4.4vw,56px);line-height:1.1;max-width:780px;margin-bottom:20px;}
+.hero p{font-size:17px;max-width:600px;color:rgba(255,255,255,.9);margin-bottom:30px;font-weight:300;}
+.stats-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:14px;}
+.stat b{font-family:var(--f-disp);font-size:30px;font-weight:800;display:block;}
+.stat span{font-size:11px;color:rgba(255,255,255,.78);font-weight:600;letter-spacing:.03em;}
+.btn{display:inline-block;background:var(--accent);color:var(--white);padding:15px 28px;border-radius:9px;font-weight:600;font-size:14px;margin-right:12px;}
+.btn-ghost{display:inline-block;border:1.5px solid rgba(255,255,255,.55);color:var(--white);padding:14px 27px;border-radius:9px;font-weight:600;font-size:14px;}
+
+h2.stitle{font-family:var(--f-disp);font-weight:800;font-size:clamp(26px,3vw,38px);color:var(--title);margin-bottom:16px;line-height:1.2;}
+.lede{font-size:15.5px;color:var(--body);max-width:740px;margin-bottom:40px;font-weight:300;}
+.lede b{font-weight:600;color:var(--title);}
+
+.grid{display:grid;gap:20px;}
+.g2{grid-template-columns:1fr 1fr;}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 26px;}
+.card h3{font-family:var(--f-disp);font-size:16.5px;font-weight:700;color:var(--title);margin-bottom:9px;}
+.card p{font-size:13.5px;color:var(--body);font-weight:300;}
+.card .num{font-family:var(--f-disp);font-size:13px;color:var(--accent);font-weight:700;display:block;margin-bottom:8px;}
+.card-fill{background:var(--accent);border:none;}
+.card-fill h3,.card-fill p{color:var(--white);}
+.card-fill p{color:rgba(255,255,255,.88);}
+.card-soft{background:var(--pill);border:none;}
+.icon-card{text-align:left;}
+.icon-card img{width:44px;height:44px;border-radius:10px;object-fit:cover;margin-bottom:14px;}
+
+ul.check li{position:relative;padding-left:22px;margin-bottom:12px;font-size:14px;color:var(--body);font-weight:300;}
+ul.check li b{font-weight:600;color:var(--title);}
+ul.check li::before{content:'';position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:2px;background:var(--accent);}
+.card-fill ul.check li{color:rgba(255,255,255,.92);}
+.card-fill ul.check li b{color:var(--white);}
+.card-fill ul.check li::before{background:rgba(255,255,255,.6);}
+.bordered{border:1px solid var(--line);border-radius:14px;padding:26px 28px;}
+.bordered h4{font-family:var(--f-disp);font-size:17px;font-weight:700;color:var(--title);margin-bottom:16px;}
+
+.two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;}
+.photo-frame{border-radius:14px;overflow:hidden;border:1px solid var(--line);}
+.pill-row{display:flex;gap:9px;flex-wrap:wrap;}
+.pill{font-size:11px;font-weight:700;padding:7px 14px;border-radius:14px;background:var(--pill);color:var(--accent);}
+
+.stepbar{display:flex;align-items:flex-start;position:relative;margin-top:16px;}
+.stepbar::before{content:'';position:absolute;top:23px;left:8%;right:8%;height:2px;background:var(--line);}
+.step-item{flex:1;text-align:center;padding:0 8px;position:relative;}
+.step-num{width:46px;height:46px;border-radius:50%;background:var(--white);border:2.5px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:var(--f-disp);font-weight:700;color:var(--accent);position:relative;z-index:1;}
+.step-item:nth-child(odd) .step-num{background:var(--accent);color:var(--white);}
+.step-item h5{font-family:var(--f-disp);font-size:13.5px;font-weight:700;color:var(--title);margin-bottom:5px;}
+.step-item p{font-size:11.5px;color:var(--faint);}
+
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:5px;max-width:640px;margin:0 auto;}
+.pyr-band{height:64px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--white);border-radius:4px;text-align:center;padding:4px;}
+.pyr-band b{font-family:var(--f-disp);font-size:14px;font-weight:700;}
+.pyr-band span{font-size:10.5px;opacity:.9;}
+.pyr-band:nth-child(1){width:100%;background:#0D3B58;}
+.pyr-band:nth-child(2){width:82%;background:#125072;}
+.pyr-band:nth-child(3){width:64%;background:#177293;}
+.pyr-band:nth-child(4){width:46%;background:#2696BE;}
+.pyr-band:nth-child(5){width:28%;background:#0099CC;}
+
+.phase-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.phase-arrow{flex:1;min-width:150px;padding:16px 20px;color:var(--white);font-family:var(--f-disp);font-weight:700;font-size:13px;position:relative;border-radius:6px;text-align:center;}
+.phase-arrow:nth-child(1){background:#0D3B58;}
+.phase-arrow:nth-child(2){background:#125072;}
+.phase-arrow:nth-child(3){background:#177293;}
+.phase-arrow:nth-child(4){background:#2696BE;}
+.phase-arrow:nth-child(5){background:#0099CC;}
+
+.timeline-wrap{position:relative;margin-top:10px;}
+.timeline-track{position:absolute;top:56px;left:26px;right:26px;height:2px;background:var(--line);}
+.timeline-row{display:flex;position:relative;flex-wrap:wrap;}
+.tstop{flex:1;min-width:220px;padding:0 10px;margin-bottom:24px;}
+.tstop-node{width:52px;height:52px;border-radius:50%;background:var(--white);border:2.5px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:var(--f-disp);font-weight:700;color:var(--accent);position:relative;z-index:1;}
+.tstop:nth-child(even) .tstop-node{background:var(--accent);color:var(--white);}
+.tstop-card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--white);}
+.tstop-card .tcat{display:inline-block;font-size:9.5px;font-weight:700;color:var(--accent);background:var(--pill);padding:3px 8px;border-radius:8px;margin-bottom:8px;}
+.tstop-card h5{font-family:var(--f-disp);font-size:13.5px;font-weight:700;color:var(--title);margin-bottom:6px;}
+.tstop-card p{font-size:12px;color:var(--body);margin-bottom:6px;font-weight:300;}
+.tstop-card small{font-size:10.5px;color:var(--faint);font-weight:600;}
+
+.org-tree{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:20px;}
+.org-node{background:var(--accent);color:var(--white);padding:12px 22px;border-radius:9px;font-weight:700;font-family:var(--f-disp);font-size:13.5px;}
+.org-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.org-row .org-node{background:var(--white);color:var(--body);border:1px solid var(--line);font-weight:600;font-size:12.5px;}
+.org-line{width:1px;height:18px;background:var(--line);}
+
+.matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.mitem{border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;background:var(--white);}
+.mitem .code{font-family:var(--f-disp);font-weight:700;font-size:11.5px;color:var(--white);background:var(--title);border-radius:7px;width:56px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mitem h5{font-size:13px;font-weight:700;color:var(--title);}
+.mitem small{font-size:11px;color:var(--faint);}
+
+.obj-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;}
+.obj-row{display:flex;align-items:center;gap:13px;padding:12px 0;border-bottom:1px solid var(--line);}
+.obj-row .on{width:34px;height:34px;border-radius:9px;background:var(--pill);color:var(--accent);font-family:var(--f-disp);font-weight:700;font-size:12.5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.obj-row h5{font-family:var(--f-disp);font-size:13px;font-weight:700;color:var(--title);}
+.obj-row small{font-size:11px;color:var(--faint);}
+
+.banner-strip{
+  position:relative;padding:90px 0;color:var(--white);text-align:center;
+  background:linear-gradient(180deg,rgba(15,25,40,.6),rgba(15,25,40,.72)),url('assets/img-16.jpg') center/cover no-repeat;
+}
+.banner-strip .wrap{display:flex;flex-direction:column;align-items:center;}
+.banner-strip h2{color:var(--white);}
+.banner-strip .lede{color:rgba(255,255,255,.88);margin-left:auto;margin-right:auto;}
+.banner-strip .pill-row{justify-content:center;}
+
+.gas-flow{display:flex;align-items:center;gap:0;margin:36px 0;flex-wrap:wrap;}
+.gf-step{flex:1;min-width:150px;background:var(--title);color:var(--white);text-align:center;padding:22px 14px 18px;position:relative;clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%,10% 50%);margin-right:-14px;}
+.gf-step:nth-child(1){background:#0D3B58;}
+.gf-step:nth-child(2){background:#125072;}
+.gf-step:nth-child(3){background:#177293;}
+.gf-step:nth-child(4){background:var(--accent);clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%,10% 50%);}
+.gf-step svg{width:38px;height:38px;margin-bottom:10px;}
+.gf-step b{display:block;font-family:var(--f-disp);font-size:12.5px;font-weight:700;}
+.eq-icon{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.eq-icon svg{width:36px;height:36px;flex-shrink:0;}
+.eq-icon span{font-family:var(--f-disp);font-weight:700;font-size:13px;color:var(--title);}
+
+footer{background:var(--title);color:var(--white);padding:72px 0 30px;}
+footer h2{color:var(--white);}
+footer .lede{color:rgba(255,255,255,.82);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.18);margin-top:40px;padding-top:20px;font-size:12px;color:rgba(255,255,255,.6);}
+
+@media(max-width:860px){
+  .g2,.g3,.g4,.two-col,.matrix-grid{grid-template-columns:1fr;}
+  nav ul{position:fixed;top:82px;left:0;right:0;bottom:0;background:var(--white);flex-direction:column;padding:20px 32px;gap:4px;border-bottom:1px solid var(--line);display:none;overflow-y:auto;}
+  nav ul.open{display:flex;}
+  nav > ul > li{width:100%;}
+  .dropdown{display:block!important;position:static;border:none;box-shadow:none;padding:0 0 10px 14px;min-width:0;}
+  #menuBtn{display:block;}
+  section{padding:60px 0;}
+  .stepbar{flex-direction:column;gap:20px;}
+  .stepbar::before{display:none;}
+  .obj-list{grid-template-columns:1fr;}
+  .pyramid{max-width:100%;}
+  .pyr-band{width:100% !important;}
+  .banner-strip{padding:60px 0;}
+}
+.page-group{display:none;}
+.page-group.active{display:block;animation:pageIn .45s ease;}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+
+/* Pyramid interactive */
+.pyr-band{cursor:pointer;transition:transform .18s, box-shadow .18s;}
+.pyr-band:hover{transform:scale(1.015);}
+.pyr-band.pyr-active{outline:3px solid var(--accent);outline-offset:2px;}
+.pyr-detail-panel{margin-top:22px;padding:22px 26px;border:1px solid var(--line);border-radius:12px;background:var(--white);min-height:64px;transition:opacity .2s;}
+.pyr-detail-panel h5{font-family:var(--f-disp);font-size:14.5px;font-weight:700;color:var(--title);margin-bottom:8px;}
+.pyr-detail-panel p{font-size:13.5px;color:var(--body);}
+.pyr-hint{font-size:13px;color:var(--faint);font-style:italic;}
+
+/* Project filters */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
+.filter-btn{font-family:var(--f-body);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:20px;border:1.5px solid var(--line);background:var(--white);color:var(--body);cursor:pointer;transition:all .15s;}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent);}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:var(--white);}
+.tstop{transition:opacity .25s, transform .25s;}
+.tstop.tstop-hidden{display:none;}
+.tstop.tstop-show{animation:fadeInUp .35s ease;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* Contact form */
+.contact-form{max-width:640px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:18px;display:flex;flex-direction:column;}
+.form-group label{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:6px;}
+.form-group input, .form-group textarea{font-family:var(--f-body);font-size:14px;padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:var(--white);transition:border-color .15s;}
+.form-group input::placeholder, .form-group textarea::placeholder{color:rgba(255,255,255,.4);}
+.form-group input:focus, .form-group textarea:focus{outline:none;border-color:var(--sky);}
+.form-group input.field-invalid, .form-group textarea.field-invalid{border-color:#e6786b;}
+.form-group input.field-valid, .form-group textarea.field-valid{border-color:#6bc48a;}
+.form-error{font-size:11.5px;color:#f0a99c;min-height:15px;margin-top:4px;}
+.form-success{display:none;font-size:13.5px;color:#8fd6a8;margin-top:14px;font-weight:600;}
+.form-success.show{display:block;}
+#cf-network-error{font-size:13.5px;color:#f0a99c;margin-top:14px;font-weight:600;}
+
+/* Zoomable images */
+.zoomable{cursor:zoom-in;transition:filter .15s;position:relative;}
+.zoomable:hover{filter:brightness(1.03);}
+.zoom-hint{position:absolute;bottom:12px;right:12px;background:rgba(20,30,45,.72);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:16px;pointer-events:none;opacity:0;transition:opacity .15s;}
+.photo-frame:hover .zoom-hint{opacity:1;}
+.lightbox{position:fixed;inset:0;background:rgba(10,15,20,.92);display:none;align-items:center;justify-content:center;z-index:999;padding:40px;cursor:zoom-out;}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+.lightbox-close{position:absolute;top:22px;right:28px;color:#fff;font-size:32px;font-weight:300;cursor:pointer;line-height:1;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.revealed{opacity:1;transform:translateY(0);}
+
+/* Vision Operacional legend */
+.vision-legend{max-width:920px;margin:28px auto 0;border:1px solid var(--line);border-radius:12px;padding:22px 28px;background:#F7FAFC;}
+.vl-row{font-size:13.5px;color:var(--body);padding:11px 0;border-bottom:1px solid var(--line);line-height:1.6;}
+.vl-row:last-child{border-bottom:none;}
+.vl-row b{font-family:var(--f-disp);font-weight:700;font-size:12.5px;letter-spacing:.02em;margin-right:6px;}
+
+
+/* Construccion interactive cards */
+.constr-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px;cursor:pointer;transition:box-shadow .2s, transform .2s;}
+.constr-card:hover{box-shadow:0 8px 24px rgba(30,50,70,.10);transform:translateY(-2px);}
+.constr-card.constr-fill{background:var(--accent);border:none;}
+.constr-card.constr-fill h3, .constr-card.constr-fill p{color:#FFFFFF;}
+.constr-head{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+.constr-icon{width:56px;height:56px;flex-shrink:0;}
+.constr-card h3, .constr-card h4{font-family:var(--f-disp);font-size:16.5px;font-weight:700;color:var(--title);margin:0;}
+.constr-card.constr-fill h3{color:#FFFFFF;}
+.constr-card p{font-size:13.5px;color:var(--body);margin-bottom:12px;}
+.constr-hint{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--accent);}
+.constr-card.constr-fill .constr-hint{color:rgba(255,255,255,.85);}
+.constr-hint .chev{display:inline-block;transition:transform .25s;font-size:10px;}
+.constr-card.expanded .constr-hint .chev{transform:rotate(180deg);}
+.constr-detail{display:none;margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,0,0,.08);}
+.constr-card.constr-fill .constr-detail{border-top:1px solid rgba(255,255,255,.25);}
+.constr-detail.show{display:block;animation:constrZoom .32s cubic-bezier(.2,.9,.3,1.2);}
+.constr-card.constr-fill .constr-detail li{color:rgba(255,255,255,.92);}
+.constr-card.constr-fill .constr-detail li::before{background:rgba(255,255,255,.7);}
+@keyframes constrZoom{from{opacity:0;transform:scale(.82);}to{opacity:1;transform:scale(1);}}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navwrap">
+    <div class="brand"><div class="brand-mark"><svg viewBox="0 0 91 76" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;"><path fill="#040404" d="M 78.27,25 c 1.04,3.99 1.05,7.99 0.03,11.99 c -3.23,12.74 -11.79,23.96 -24.33,28.61 c -2.06,0.67 -4.05,0.52 -5.98,-0.44 c -2.64,-2.1 -4.16,-4.84 -4.57,-8.22 c -0.71,-6.47 0.03,-14.18 0.05,-20.79 c 0.2,-5.73 0.25,-12.39 7.87,-12.08 c 3.61,0.59 0.74,25.35 1.66,29.46 c 0.52,7.56 7.32,3.37 10.36,0.27 c 13.7,-12.17 16.57,-34.11 -5.96,-37.71 c -0.84,-1.57 0.5,-3.75 2.12,-4.15 c 7.45,-1.25 16.72,5.8 18.75,13.06 Z"/><path fill="#23abe3" d="M 45.96,8.57 c 1.69,-0.59 3.38,-0.6 5.07,-0.01 c 1.39,0.54 2.55,1.39 3.49,2.55 c 4.94,6.93 -2.56,14.83 -9.94,10.98 c -1.92,-1.15 -3.13,-2.82 -3.63,-5 c -0.2,-1.38 -0.06,-2.74 0.4,-4.05 c 0.93,-2.12 2.47,-3.61 4.61,-4.47 Z M 38,17.49 c 0.34,0.05 0.67,0.1 1.01,0.15 c 1.74,0.2 0.46,3.98 0.16,5.01 c -6.91,8.41 -12.14,12.89 -12.22,24.85 c 0.86,13.16 11.72,10.32 15.69,17.51 c 0.09,0.32 0.17,0.63 0.26,0.95 c 0.26,1.06 0.06,2 -0.59,2.83 c -3.45,0.59 -6.85,0.39 -10.21,-0.58 c -6.42,-2.31 -10.61,-6.73 -12.59,-13.26 c -0.89,-4.99 -0.84,-9.98 0.15,-14.96 c 2.65,-10.21 9.27,-17.48 18.34,-22.5 Z"/></svg></div><span class="brand-name">INACOM ORIENTE</span></div>
+    <nav><ul id="navList">
+      <li><a href="#empresa">Empresa <span class="caret">▾</span></a>
+        <div class="dropdown">
+          <a href="#empresa">La Empresa</a>
+          <a href="#perfil">Perfil Tecnológico</a>
+          <a href="#objetivos">Objetivos</a>
+          <a href="#organizacion">Estructura Organizacional</a>
+        </div>
+      </li>
+      <li><a href="#servicios">Servicios <span class="caret">▾</span></a>
+        <div class="dropdown">
+          <a href="#servicios">Ingeniería</a>
+          <a href="#medicion-sistemas">Medición de Crudo y Gas</a>
+          <a href="#esquemas">Esquemas Técnicos de Medición</a>
+          <a href="#especializados">Servicios Especializados</a>
+          <a href="#calibracion">Calibraciones y Certificaciones</a>
+          <a href="#asesorias">Asesorías Especializadas</a>
+        </div>
+      </li>
+      <li><a href="#tecnologia">Tecnología <span class="caret">▾</span></a>
+        <div class="dropdown">
+          <a href="#tecnologia">Tecnología Avanzada</a>
+          <a href="#automatizacion">Automatización de Pozos</a>
+        </div>
+      </li>
+      <li><a href="#modelo">Modelo <span class="caret">▾</span></a>
+        <div class="dropdown">
+          <a href="#modelo">Modelo Piramidal ISO</a>
+          <a href="#vision">Visión Operacional</a>
+          <a href="#fases">Metodología por Fases</a>
+          <a href="#normativo">Normativas Legales</a>
+        </div>
+      </li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#construccion">Construcción</a></li>
+      <li><a href="#contacto" class="navcta">Contacto</a></li>
+    </ul></nav>
+    <button id="menuBtn">☰</button>
+  </div>
+</header>
+
+<div class="page-group active" data-page="inicio">
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="eyebrow">Automatización · Medición · IT · Comunicaciones</div>
+    <h1 class="hero-title">Soluciones Integrales de Automatización Industrial</h1>
+    <p>Diseñamos, suministramos e implantamos tecnología de medición y automatización para la industria de hidrocarburos venezolana — desde el pozo hasta la sala de control.</p>
+    <a href="#contacto" class="btn">Contactar Ahora</a>
+    <a href="#servicios" class="btn-ghost">Ver Servicios</a>
+    <div class="stats-row">
+      <div class="stat"><b class="count-num" data-final="+20">0</b><span>PROYECTOS EJECUTADOS</span></div>
+      <div class="stat"><b class="count-num" data-final="5">0</b><span>ÁREAS DE ESPECIALIZACIÓN</span></div>
+      <div class="stat"><b class="count-num" data-final="2">0</b><span>ESTADOS: ANZOÁTEGUI Y MONAGAS</span></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="empresa">
+<section id="empresa">
+  <div class="wrap">
+    <div class="eyebrow light">Inacom Oriente: Innovando Soluciones</div>
+    <div class="two-col">
+      <div>
+        <h2 class="stitle">La empresa</h2>
+        <p class="lede" style="margin-bottom:24px;">Inacom Oriente es una empresa de tecnología especializada en <b>Medición de Hidrocarburos, Automatización, Informática y Comunicaciones</b>, que ofrece servicios integrales desde el desarrollo de ingeniería hasta la implantación de proyectos.</p>
+        <ul class="check">
+          <li><b>Ingeniería Integral</b> — desarrollo de proyectos de concepto a puesta en marcha</li>
+          <li><b>Suministro y Despliegue</b> — compra de equipos e instalación en sitio</li>
+          <li><b>Personal Certificado</b> — ingenieros y técnicos con amplia experiencia</li>
+        </ul>
+      </div>
+      <div class="photo-frame"><img src="assets/img-01.png" alt="Ilustración moderna de ingeniero analizando datos de producción"></div>
+    </div>
+  </div>
+</section>
+<section class="alt" id="perfil">
+  <div class="wrap">
+    <div class="eyebrow light">Capabilities</div>
+    <h2 class="stitle">Perfil tecnológico integral</h2>
+    <p class="lede">Nuestras capacidades se organizan en cinco áreas centrales bajo un único punto de responsabilidad.</p>
+    <div class="stepbar">
+      <div class="step-item"><div class="step-num">1</div><h5>Ingeniería</h5><p>Conceptual y de ejecución</p></div>
+      <div class="step-item"><div class="step-num">2</div><h5>Procura</h5><p>Suministro e instalación</p></div>
+      <div class="step-item"><div class="step-num">3</div><h5>Arranque</h5><p>Pruebas y calibración</p></div>
+      <div class="step-item"><div class="step-num">4</div><h5>Certificación</h5><p>Ante SAMH y MPPPM</p></div>
+      <div class="step-item"><div class="step-num">5</div><h5>Asesoría</h5><p>Consultoría estratégica</p></div>
+    </div>
+  </div>
+</section>
+<section id="objetivos">
+  <div class="wrap">
+    <div class="eyebrow light">Our Mission</div>
+    <h2 class="stitle">Objetivos de nuestras soluciones tecnológicas</h2>
+    <div class="obj-list">
+      <div class="obj-row"><div class="on">01</div><div><h5>Productividad Operacional</h5><small>Aumentar la productividad</small></div></div>
+      <div class="obj-row"><div class="on">02</div><div><h5>Reducción de Costos</h5><small>Optimizar la operación</small></div></div>
+      <div class="obj-row"><div class="on">03</div><div><h5>Calidad del Producto</h5><small>Mejorar los productos</small></div></div>
+      <div class="obj-row"><div class="on">04</div><div><h5>Seguridad Industrial</h5><small>Aumentar la seguridad</small></div></div>
+      <div class="obj-row"><div class="on">05</div><div><h5>Toma de Decisiones</h5><small>Facilitar decisiones</small></div></div>
+      <div class="obj-row"><div class="on">06</div><div><h5>Integración de Sistemas</h5><small>Sistemas de producción</small></div></div>
+    </div>
+  </div>
+</section>
+<section id="organizacion">
+  <div class="wrap">
+    <div class="eyebrow light">Estructura</div>
+    <h2 class="stitle">Estructura organizacional</h2>
+    <p class="lede">Estructura matricial que combina disciplina de gerencia de proyectos con especialización técnica profunda.</p>
+    <div class="org-tree">
+      <div class="org-node">Gerencia de Proyectos</div>
+      <div class="org-line"></div>
+      <div class="org-row"><div class="org-node">Documentación y Estadística</div><div class="org-node">Planificación y Control</div></div>
+      <div class="org-line"></div>
+      <div class="org-row"><div class="org-node">Medición</div><div class="org-node">Automatización</div><div class="org-node">Informática</div><div class="org-node">Comunicaciones</div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="servicios">
+<section class="alt" id="servicios">
+  <div class="wrap">
+    <div class="eyebrow light">Servicios</div>
+    <h2 class="stitle">Servicios de ingeniería</h2>
+    <p class="lede">Servicios integrales en todas las fases del proyecto — desde la visualización hasta el despliegue final.</p>
+    <div class="grid g2">
+      <div class="bordered"><h4>Oferta Principal de Ingeniería</h4><ul class="check">
+        <li>Desarrollo de ingeniería para Medición, Automatización, IT y Comunicaciones</li>
+        <li>Ingeniería especializada de software para control de parámetros petroleros</li>
+        <li>Gestión de medición y desarrollo de estrategia con IA</li>
+      </ul></div>
+      <div class="bordered"><h4>Asesoría y Formación</h4><ul class="check">
+        <li>Evaluación tecnológica, procura y puesta en marcha de sistemas de medición</li>
+        <li>Asesoría de calibración y certificación de crudo y gas</li>
+        <li>Programas de capacitación tecnológica para la industria petrolera</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+<section id="medicion-sistemas">
+  <div class="wrap">
+    <div class="eyebrow light">Servicios</div>
+    <h2 class="stitle">Diseño de sistemas de medición de crudo y gas</h2>
+    <p class="lede">Sistemas completos de medición fiscal, de referencia y de transferencia de custodia, en instalaciones de producción, oleoductos e infraestructura de almacenamiento.</p>
+    <div class="grid g2">
+      <div class="bordered">
+        <div class="eq-icon"><svg viewBox="0 0 48 48"><path d="M24 8 L38 30 L10 30 Z" fill="none" stroke="#0099CC" stroke-width="3" stroke-linejoin="round"/><line x1="24" y1="30" x2="24" y2="40" stroke="#0099CC" stroke-width="3"/></svg><span>Medición de Crudo</span></div>
+        <ul class="check">
+        <li>Sistemas de medición multifásica en manifolds de producción y prueba</li>
+        <li>Skids de medición de referencia en estaciones de transferencia y oleoductos</li>
+        <li>Skids de medición fiscal en estaciones de transferencia y líneas</li>
+        <li>Sistemas de medición fiscal y de referencia en tanques de almacenamiento</li>
+      </ul></div>
+      <div class="bordered">
+        <div class="eq-icon"><svg viewBox="0 0 48 48"><path d="M24 6 C24 6 14 20 14 28 A10 10 0 0 0 34 28 C34 20 24 6 24 6 Z" fill="none" stroke="#0099CC" stroke-width="3" stroke-linejoin="round"/></svg><span>Medición de Gas Natural</span></div>
+        <ul class="check">
+        <li>Sistemas fiscales, de referencia y custodia en separadores y scrubbers</li>
+        <li>Medición en entradas y salidas de plantas compresoras</li>
+        <li>Puntos de medición de venteo, gas combustible y gas de venta</li>
+        <li>Sistemas de medición de gas de inyección y gas lift</li>
+      </ul></div>
+    </div>
+    <div class="grid g2" style="margin-top:24px;">
+      <div>
+        <div class="photo-frame"><img class="zoomable" src="assets/img-02.jpg" alt="Skid de medición fiscal de crudo con medidor Coriolis y computador de flujo Daniel"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+        <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">Skid de transferencia de custodia con medidor Coriolis, computador de flujo y muestreador automático.</p>
+      </div>
+      <div>
+        <div class="photo-frame"><img class="zoomable" src="assets/img-03.jpg" alt="Skid de medición fiscal de crudo con medidor de turbina y ultrasónico"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+        <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">Skid alterno con medidor de turbina, densitómetro en línea y acondicionador de flujo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="alt" id="esquemas">
+  <div class="wrap">
+    <div class="eyebrow light">Diagrama Técnico</div>
+    <h2 class="stitle">Medición de crudo en línea y tanques</h2>
+    <p class="lede">Sistemas de medición fundamentales para la producción y el almacenamiento de crudo, garantizando precisión y eficiencia en cada etapa. Ambos sistemas están integrados con el Computador de Flujo para cálculos volumétricos precisos y certificados.</p>
+    <div class="grid g2">
+      <div class="bordered">
+        <div class="eq-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="#0099CC" stroke-width="3"/><circle cx="24" cy="24" r="7" fill="none" stroke="#0099CC" stroke-width="3"/><line x1="6" y1="24" x2="17" y2="24" stroke="#0099CC" stroke-width="3"/><line x1="31" y1="24" x2="42" y2="24" stroke="#0099CC" stroke-width="3"/></svg><span>Medición en Línea</span></div>
+        <p style="font-size:13px;color:var(--faint);margin-bottom:14px;">Sistema de medición en tiempo real para líneas de transferencia y estaciones de flujo.</p>
+        <ul class="check">
+          <li>Medidor de Flujo Coriolis (FE)</li>
+          <li>Transmisores de Presión (PT) y Temperatura (TT)</li>
+          <li>Elemento de Restricción (RDT) para diferencial de presión</li>
+          <li>Analizador de Agua (AE)</li>
+          <li>Computador de Flujo para cálculos volumétricos</li>
+        </ul>
+      </div>
+      <div class="bordered">
+        <div class="eq-icon"><svg viewBox="0 0 48 48"><rect x="12" y="10" width="24" height="30" rx="2" fill="none" stroke="#0099CC" stroke-width="3"/><line x1="24" y1="6" x2="24" y2="10" stroke="#0099CC" stroke-width="3"/><path d="M17 22 L31 22 L24 30 Z" fill="#0099CC"/></svg><span>Medición en Tanques</span></div>
+        <p style="font-size:13px;color:var(--faint);margin-bottom:14px;">Sistema de medición estática para almacenamiento y control de inventario.</p>
+        <ul class="check">
+          <li>Medidor de Nivel tipo Radar (Modbus TRL2)</li>
+          <li>Transmisores de Temperatura y Presión</li>
+          <li>Analizadores de Corte de Agua en línea</li>
+          <li>Consola de Gestión (Tank Master)</li>
+          <li>Comunicación RS-232 para integración</li>
+        </ul>
+      </div>
+    </div>
+    <div style="max-width:420px;margin:28px auto 0;">
+      <div class="photo-frame"><img class="zoomable" src="assets/img-04.jpg" alt="Sistema de medición de nivel en tanques con medidor radar para crudo, normas API 2350/18.2/5.2"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+      <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">Medidor radar de nivel para tanques de crudo, bajo normas API 2350 / 18.2 / 5.2 — incluye referencia de aforo manual (dip taping).</p>
+    </div>
+
+    <h2 class="stitle" style="margin-top:60px;">Esquemas de medición de gas</h2>
+    <p class="lede">Inacom Oriente implementa sistemas especializados de medición de gas para múltiples aplicaciones en la cadena de producción, desde separadores hasta plantas de compresión y puntos de venta.</p>
+    <div class="gas-flow">
+      <div class="gf-step"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#FFFFFF" stroke-width="3"/><circle cx="24" cy="24" r="4" fill="#FFFFFF"/></svg><b>Elemento Primario</b></div>
+      <div class="gf-step"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#FFFFFF" stroke-width="3"/><line x1="24" y1="24" x2="32" y2="16" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg><b>Transmisor MV</b></div>
+      <div class="gf-step"><svg viewBox="0 0 48 48"><rect x="10" y="12" width="28" height="24" rx="2" fill="none" stroke="#FFFFFF" stroke-width="3"/><line x1="16" y1="20" x2="32" y2="20" stroke="#FFFFFF" stroke-width="2.5"/><line x1="16" y1="26" x2="32" y2="26" stroke="#FFFFFF" stroke-width="2.5"/><line x1="16" y1="32" x2="24" y2="32" stroke="#FFFFFF" stroke-width="2.5"/></svg><b>Computador de Flujo</b></div>
+      <div class="gf-step"><svg viewBox="0 0 48 48"><rect x="9" y="11" width="30" height="20" rx="2" fill="none" stroke="#FFFFFF" stroke-width="3"/><polyline points="14,24 19,17 24,22 34,15" fill="none" stroke="#FFFFFF" stroke-width="2.5"/><line x1="19" y1="35" x2="29" y2="35" stroke="#FFFFFF" stroke-width="3"/></svg><b>SCADA / BDO</b></div>
+    </div>
+    <div class="grid g2">
+      <div class="bordered"><h4>Medición en Línea — Sistema Estándar</h4>
+        <p style="font-size:13px;color:var(--faint);margin-bottom:6px;">Componentes principales:</p>
+        <ul class="check">
+          <li>Elemento Primario: Placa de Orificio (Restrictor de flujo)</li>
+          <li>Transmisor Multivariable (MV): captura presión, temperatura y diferencial</li>
+          <li>Computador de Flujo: cálculos de volumen según normas AGA/API</li>
+          <li>Sistema SCADA/BDO: integración con centros de control</li>
+        </ul>
+      </div>
+      <div class="bordered"><h4>Puntos de Medición de Gas</h4><ul class="check">
+        <li><b>Separadores:</b> medición de gas asociado en producción</li>
+        <li><b>Depuradores:</b> control de gas en líneas de transferencia</li>
+        <li><b>Plantas Compresoras:</b> entrada y salida de gas comprimido</li>
+        <li><b>Gas de Inyección (LAG):</b> gas inyectado a yacimientos</li>
+        <li><b>Gas Lift:</b> gas para levantamiento artificial</li>
+        <li><b>Venteos:</b> control de gas ventilado</li>
+      </ul></div>
+    </div>
+    <div style="max-width:420px;margin:28px auto 0;">
+      <div class="photo-frame"><img class="zoomable" src="assets/img-05.jpg" alt="Sistemas de medición de gas en línea para transferencia de custodia: ultrasonido, orificio y turbina"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+      <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">Tecnologías de medición de gas (ultrasonido AGA 9, orificio AGA 3, turbina AGA 7), monitoreo de calidad y cómputo fiscal según AGA/API.</p>
+    </div>
+  </div>
+</section>
+<section id="especializados">
+  <div class="wrap">
+    <div class="eyebrow light">Servicios</div>
+    <h2 class="stitle">Servicios especializados de alto valor</h2>
+    <p class="lede">Asesoría analítica que soporta la excelencia operacional, el cumplimiento regulatorio y la toma de decisiones estratégicas.</p>
+    <div class="grid g2">
+      <div class="card card-fill"><h3>Planes Maestros</h3><p>Desarrollo de Planes Maestros de Medición, Automatización, IT y Comunicaciones, incluyendo planes operativos y de mantenimiento.</p></div>
+      <div class="card"><h3>Análisis Estadístico</h3><p>Análisis estadístico de pruebas de pozos y medición de crudo y gas en puntos fiscales y referenciales.</p></div>
+      <div class="card"><h3>Documentación Regulatoria</h3><p>Preparación de documentación para propuestas de medición ante organismos gubernamentales.</p></div>
+      <div class="card card-fill"><h3>Indicadores de Gestión</h3><p>Generación de indicadores de gestión para procesos de medición y plataformas de automatización e IT.</p></div>
+    </div>
+  </div>
+</section>
+<section class="alt" id="calibracion">
+  <div class="wrap">
+    <div class="eyebrow light">Calibraciones</div>
+    <h2 class="stitle">Calibraciones y certificaciones</h2>
+    <p class="lede">Validación de instrumentos fiscales bajo estándares reconocidos internacionalmente.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Medidores de Nivel Radar</h3><p>Calibración y validación en patios de tanques PTOR, PTJ, PTT, PTO, TAEJ y TAEG.</p></div>
+      <div class="card"><h3>Analizadores de Corte de Agua</h3><p>Calibración y validación en línea en patios de tanques.</p></div>
+      <div class="card"><h3>Medidores de Flujo Coriolis</h3><p>Certificación de transmisores de presión y temperatura en estaciones de flujo.</p></div>
+      <div class="card"><h3>Medidores Fiscales</h3><p>Validación de presión y temperatura en estaciones de flujo U.P. Carito/Pirital.</p></div>
+      <div class="card"><h3>Analizadores en Rusio Viejo</h3><p>Validación de cálculos en estaciones de flujo, Maturín, Edo. Monagas.</p></div>
+      <div class="card"><h3>Medidores tipo Clamp-On</h3><p>Calibración en líneas de bombeo y terminales de embarque.</p></div>
+    </div>
+  </div>
+</section>
+<section id="asesorias">
+  <div class="wrap">
+    <div class="eyebrow light">Asesorías</div>
+    <h2 class="stitle">Asesorías especializadas</h2>
+    <p class="lede">Participación técnica en las mesas y comités que gobiernan la medición fiscal y el balance de crudo y gas.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Mesas Técnicas</h3><p>Multidisciplinarias de Medición, Automatización, IT y Comunicaciones.</p></div>
+      <div class="card"><h3>Comité COMBAF</h3><p>Control de Mermas y Pérdidas de Crudo Oriente.</p></div>
+      <div class="card"><h3>Comité de Balance de Gas</h3><p>Comité de Balance de Gas Oriente.</p></div>
+      <div class="card"><h3>Comité de Volumetría</h3><p>Volumetría de Crudo ante la OPEP.</p></div>
+      <div class="card"><h3>Mesas MPPPM / SAMH</h3><p>Mesas técnicas con organismos gubernamentales rectores.</p></div>
+      <div class="card"><h3>Auditoría de Medición</h3><p>Auditoría a Sistemas de Medición, División Punta de Mata.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="tecnologia">
+<section class="alt" id="tecnologia">
+  <div class="wrap">
+    <div class="eyebrow light">Tecnología</div>
+    <h2 class="stitle">Tecnología avanzada</h2>
+    <p class="lede">Tecnologías de campo avanzadas y herramientas digitales impulsadas por IA que extienden la visibilidad desde el cabezal del pozo hasta la sala de control.</p>
+    <div class="grid g4">
+      <div class="card icon-card"><img src="assets/img-06.png" alt="">
+        <h3>Medición Multifásica (MPFM)</h3><p>Caudalímetros multifásicos en cabezales y manifolds de prueba que permiten pruebas continuas y no intrusivas de pozos.</p></div>
+      <div class="card icon-card"><img src="assets/img-07.png" alt="">
+        <h3>Inyección de Gas Lift</h3><p>Skids de inyección diseñados con medición, válvulas de control y sistemas de seguridad para asignación precisa de gas.</p></div>
+      <div class="card icon-card"><img src="assets/img-08.png" alt="">
+        <h3>Integración PI y CIOC</h3><p>Integración en tiempo real con historiadores industriales como OSIsoft PI System y CIOC, centralizando datos.</p></div>
+      <div class="card icon-card"><img src="assets/img-09.png" alt="">
+        <h3>Pruebas de Pozo con IA</h3><p>Nuestro módulo propietario VFPM aplica correlaciones PVT calibradas con IA para simular pruebas de pozos continuamente.</p></div>
+    </div>
+    <div style="max-width:520px;margin:32px auto 0;">
+      <div class="photo-frame"><img class="zoomable" src="assets/img-10.jpg" alt="Pirámide de gerencia del dato de medición fiscal: obtención, transporte y almacenamiento, procesamiento y validación, gerencia del dato"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+      <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">El dato de campo recorre cuatro etapas hasta convertirse en decisión estratégica — infraestructura que sostiene la integración PI/CIOC y el módulo VFPM.</p>
+    </div>
+  </div>
+</section>
+<section id="automatizacion">
+  <div class="wrap">
+    <div class="eyebrow light">Tecnología</div>
+    <h2 class="stitle">Automatización de pozos y conectividad</h2>
+    <p class="lede">Arquitectura de control de pozos totalmente automatizada, soportada por redes inalámbricas industriales.</p>
+    <div class="two-col">
+      <div class="grid" style="gap:16px;">
+        <div class="card card-fill"><h3>Automatización de Cabezal</h3><ul class="check">
+          <li><b>Control Remoto de Válvulas</b> — actuación y choke para gas lift y producción</li>
+          <li><b>Integración RTU/PLC</b> — presión, flujo y temperatura en tiempo real</li>
+          <li><b>Supervisión SCADA</b> — alarmas desde sala de control</li>
+        </ul></div>
+        <div class="bordered"><h4>Redes de Comunicación Especializadas</h4><ul class="check">
+          <li><b>Instrumentación Inalámbrica</b> — sensores por protocolos industriales</li>
+          <li><b>Redes LTE Privadas</b> — banda ancha dedicada para datos y video</li>
+          <li><b>Telemetría (PtMP)</b> — enlaces de 2.4 GHz sin cobertura celular</li>
+          <li><b>Videovigilancia</b> — cámaras inalámbricas para monitoreo remoto</li>
+        </ul></div>
+      </div>
+      <div>
+        <div class="photo-frame"><img class="zoomable" src="assets/img-11.png" alt="Diagrama de red de campo con telemetría LTE/WiMAX hacia gateways inalámbricos"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+        <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;">Red de campo real: integra transmisores inalámbricos de patines de inyección de gas lift y de cabezales de pozo (árbol de navidad) hacia la Sala de Control CCC-EPJ2 vía fibra óptica y telemetría LTE/WiMAX.</p>
+      </div>
+    </div>
+    <div style="margin-top:36px;">
+      <div class="photo-frame"><img class="zoomable" src="assets/img-12.png" alt="Detalle de integración de señales de pozos y patines de inyección al SCADA vía radios CPE LTE"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+      <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">Detalle del nodo maestro de campo (paneles solares, radio telemetría, gateway inalámbrico) que integra las señales del pozo productor y del patín de inyección de gas lift hacia el SCADA, mediante radios CPE LTE.</p>
+    </div>
+  </div>
+</section>
+<section class="banner-strip">
+  <div class="wrap">
+    <div class="eyebrow" style="background:rgba(255,255,255,.16);">Excelencia en Medición de Crudo y Gas</div>
+    <h2 class="stitle">Tecnología de campo probada en toda la División Oriente</h2>
+    <p class="lede">Equipos de medición fiscal y referencial calibrados bajo estándares API, AGA e ISO, desplegados en instalaciones de producción, oleoductos y patios de tanques.</p>
+    <div class="pill-row">
+      <span class="pill">MEDICIÓN FISCAL Y REFERENCIAL</span>
+      <span class="pill">GAS LIFT Y MULTIFÁSICO</span>
+      <span class="pill">CALIBRACIÓN CERTIFICADA</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="modelo">
+<section id="modelo">
+  <div class="wrap">
+    <div class="eyebrow light">Modelo de Integración</div>
+    <h2 class="stitle">Modelo de integración piramidal ISO</h2>
+    <p class="lede">Este marco jerárquico asegura la integración fluida desde la instrumentación de campo hasta los sistemas de gestión empresarial.</p>
+    <div class="pyramid" id="isoPyramid">
+      <div class="pyr-band" data-detail="Sistemas ERP y plataformas empresariales que consolidan los datos certificados de todo el campo, convirtiéndolos en indicadores de gestión para la toma de decisiones de la gerencia."><b>Integración y Gestión</b><span>ERP, sistemas empresariales</span></div>
+      <div class="pyr-band" data-detail="HMI, servidores SCADA y salas de control que dan visibilidad en tiempo real de todas las variables operativas — presión, flujo, temperatura — a los operadores de planta."><b>Supervisión y Control</b><span>HMI, servidores SCADA</span></div>
+      <div class="pyr-band" data-detail="PLCs, RTUs y estaciones de campo SCADA que reciben, procesan y transmiten las señales digitales de la instrumentación hacia los niveles superiores de supervisión."><b>Control y Recolección de Datos</b><span>PLCs, RTUs</span></div>
+      <div class="pyr-band" data-detail="Sensores, medidores de flujo, transmisores de presión y temperatura — el punto de contacto físico real con la variable de proceso que se quiere medir o controlar."><b>Instrumentación y Medición</b><span>Sensores, transmisores</span></div>
+      <div class="pyr-band" data-detail="Las operaciones de campo mismas: pozos, separadores, tuberías y equipos de producción — la base física real sobre la que se construye todo el modelo de integración."><b>Procesos Industriales</b><span>Pozos, separadores, tuberías</span></div>
+    </div>
+    <div class="pyr-detail-panel" id="pyrDetailPanel">
+      <p class="pyr-hint">Haz clic en un nivel de la pirámide para ver el detalle.</p>
+    </div>
+  </div>
+</section>
+<section class="alt" id="vision">
+  <div class="wrap">
+    <div class="eyebrow light">Visión Operacional</div>
+    <h2 class="stitle">Producción y manejo de crudo y gas</h2>
+    <p class="lede">El recorrido del dato de producción desde el pozo hasta la entrega final en terminales.</p>
+    <div class="photo-frame" style="max-width:920px;margin:0 auto;"><img class="zoomable" src="assets/img-13.png" alt="Diagrama de flujo de producción: Pozos, Estación Principal, Patio de Tanques y Terminales de Embarque"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+    <div class="vision-legend">
+      <div class="vl-row"><b style="color:#2E9E5B;">PRODUCCIÓN ESTIMADA</b> <span>(EXTRAÍDA)</span> = Prueba de pozo &times; Días activos al mes</div>
+      <div class="vl-row"><b style="color:#C0392B;">PRODUCCIÓN OPERADA</b> = Producción medida en estaciones principales = fiscalizada &minus; Var. Inventario</div>
+      <div class="vl-row"><b style="color:#C0392B;">PRODUCCIÓN FISCALIZADA</b> = Producción medida en punto fiscal</div>
+      <div class="vl-row"><b style="color:#1B3A6B;">PRODUCCIÓN ENTREGADA</b> = Producción recibida en terminales y mejoradores</div>
+    </div>
+    <div style="max-width:640px;margin:32px auto 0;">
+      <div class="photo-frame"><img class="zoomable" src="assets/img-14.jpg" alt="Sala de control estratégica con visualización en tiempo real de sistemas de medición"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
+      <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">La parte estratégica: sala de control donde convergen los datos de medición para la toma de decisiones.</p>
+    </div>
+  </div>
+</section>
+<section id="fases">
+  <div class="wrap">
+    <div class="eyebrow light">Metodología</div>
+    <h2 class="stitle">Productos a desarrollar por fases</h2>
+    <p class="lede">De la visualización al arranque — cada fase entrega productos con nivel de precisión de costos creciente.</p>
+    <div class="phase-row">
+      <div class="phase-arrow">Visualización<br><small style="font-weight:400;">Clase V</small></div>
+      <div class="phase-arrow">Conceptualización<br><small style="font-weight:400;">Clase IV</small></div>
+      <div class="phase-arrow">Definición<br><small style="font-weight:400;">Clase II</small></div>
+      <div class="phase-arrow">Implantación<br><small style="font-weight:400;">Ejecución</small></div>
+      <div class="phase-arrow">Arranque<br><small style="font-weight:400;">Puesta en marcha</small></div>
+    </div>
+  </div>
+</section>
+<section class="alt" id="normativo">
+  <div class="wrap">
+    <div class="eyebrow light">Cumplimiento</div>
+    <h2 class="stitle">Normativas legales vigentes</h2>
+    <p class="lede">Todo desarrollo se ejecuta bajo el cumplimiento estricto de las normativas nacionales e internacionales.</p>
+    <div class="matrix-grid">
+      <div class="mitem"><div class="code">LOHL</div><div><h5>Ley Orgánica de Hidrocarburos Líquidos</h5><small>Marco legal nacional</small></div></div>
+      <div class="mitem"><div class="code">LOHG</div><div><h5>Ley Orgánica de Hidrocarburos Gaseosos</h5><small>Marco legal nacional</small></div></div>
+      <div class="mitem"><div class="code">OIML</div><div><h5>Ley de Metrología Legal</h5><small>Trazabilidad metrológica</small></div></div>
+      <div class="mitem"><div class="code">NTFHL</div><div><h5>Normas Técnicas de Hidrocarburos Líquidos</h5><small>Medición fiscal de crudo</small></div></div>
+      <div class="mitem"><div class="code">NTFHG</div><div><h5>Normas Técnicas de Hidrocarburos Gaseosos</h5><small>Medición fiscal de gas</small></div></div>
+      <div class="mitem"><div class="code">API/AGA</div><div><h5>American Petroleum Institute / Gas Association</h5><small>Estándares de medición</small></div></div>
+      <div class="mitem"><div class="code">ISO</div><div><h5>International Organization for Standardization</h5><small>Gestión de calidad</small></div></div>
+      <div class="mitem"><div class="code">COVENIN</div><div><h5>Normas Venezolanas COVENIN</h5><small>Seguridad e ingeniería</small></div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="proyectos">
+<section class="alt" id="proyectos">
+  <div class="wrap">
+    <div class="eyebrow light">Proyectos</div>
+    <h2 class="stitle">Ruta de proyectos insignia</h2>
+    <p class="lede">Ocho proyectos representativos de más de 20 ejecutados en toda la División Oriente de PDVSA.</p>
+    <div class="filter-row" id="projectFilters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="automatizacion">Automatización</button>
+      <button class="filter-btn" data-filter="multifasico">Multifásico</button>
+      <button class="filter-btn" data-filter="fiscal">Medición Fiscal</button>
+      <button class="filter-btn" data-filter="it">IT / Integración</button>
+      <button class="filter-btn" data-filter="asesoria">Asesoría</button>
+      <button class="filter-btn" data-filter="perdidas">Control de Pérdidas</button>
+    </div>
+    <div class="timeline-wrap">
+      <div class="timeline-track"></div>
+      <div class="timeline-row" id="timelineRow">
+        <div class="tstop" data-cat="automatizacion"><div class="tstop-node">01</div><div class="tstop-card"><span class="tcat">Automatización</span><h5>AI2S</h5><p>Integración subsuelo–superficie que conecta pozo y planta.</p><small>San Tomé, Anzoátegui</small></div></div>
+        <div class="tstop" data-cat="automatizacion"><div class="tstop-node">02</div><div class="tstop-card"><span class="tcat">Automatización</span><h5>AUTOMEGA</h5><p>Automatización integral de la medición de gas en Oriente.</p><small>Puerto La Cruz</small></div></div>
+        <div class="tstop" data-cat="multifasico"><div class="tstop-node">03</div><div class="tstop-card"><span class="tcat">Multifásico</span><h5>Prueba de Pozos Furrial</h5><p>Plataforma de prueba de pozos sin separación de fases.</p><small>División Furrial</small></div></div>
+        <div class="tstop" data-cat="fiscal"><div class="tstop-node">04</div><div class="tstop-card"><span class="tcat">Medición Fiscal</span><h5>Carito / Pirital</h5><p>Modernización de la medición fiscal de crudo en línea.</p><small>Punta de Mata</small></div></div>
+        <div class="tstop" data-cat="it"><div class="tstop-node">05</div><div class="tstop-card"><span class="tcat">IT / Integración</span><h5>SIIF</h5><p>Sistema fiscal unificado para toda la división.</p><small>Oriente</small></div></div>
+        <div class="tstop" data-cat="asesoria"><div class="tstop-node">06</div><div class="tstop-card"><span class="tcat">Asesoría / SCADA</span><h5>Evaluación SCADA PDVSA</h5><p>Auditoría integral de los sistemas SCADA.</p><small>Oriente</small></div></div>
+        <div class="tstop" data-cat="asesoria"><div class="tstop-node">07</div><div class="tstop-card"><span class="tcat">Asesoría</span><h5>Certificación OPEP</h5><p>Validación internacional de la volumetría de crudo de PDVSA.</p><small>Maturín, Monagas</small></div></div>
+        <div class="tstop" data-cat="perdidas"><div class="tstop-node">08</div><div class="tstop-card"><span class="tcat">Control de Pérdidas</span><h5>PCMP</h5><p>Control de mermas y pérdidas del balance volumétrico.</p><small>Puerto La Cruz</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="construccion">
+<section id="construccion">
+  <div class="wrap">
+    <div class="eyebrow light">Construcción</div>
+    <h2 class="stitle">Construcción y fabricación mecánica</h2>
+    <p class="lede">Servicios de fabricación, instalación y construcción mecánica para infraestructura de campo en la industria de petróleo y gas.</p>
+    <div class="grid g2">
+      <div class="constr-card" data-target="ct-1">
+        <div class="constr-head">
+          <svg viewBox="-30 0 140 140" class="constr-icon"><circle cx="35" cy="70" r="62" fill="#FDF1E4"/><rect x="-15" y="90" width="100" height="26" rx="5" fill="none" stroke="#E8833A" stroke-width="4"/><line x1="-5" y1="95" x2="-5" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="10" y1="95" x2="10" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="25" y1="95" x2="25" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="55" y1="95" x2="55" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="70" y1="95" x2="70" y2="111" stroke="#E8833A" stroke-width="1.5"/><rect x="20" y="40" width="30" height="52" rx="4" fill="#FFFFFF" stroke="#2E3C4E" stroke-width="4"/><line x1="26" y1="50" x2="44" y2="50" stroke="#2E3C4E" stroke-width="2"/><line x1="26" y1="60" x2="44" y2="60" stroke="#2E3C4E" stroke-width="2"/><line x1="35" y1="40" x2="35" y2="24" stroke="#2E3C4E" stroke-width="4"/><circle cx="35" cy="20" r="6" fill="#E8833A"/><circle cx="35" cy="20" r="10" fill="none" stroke="#E8833A" stroke-width="2" opacity="0.5"/><path d="M35 92 L35 108" stroke="#2E3C4E" stroke-width="4"/><circle cx="35" cy="112" r="5" fill="none" stroke="#2E3C4E" stroke-width="3"/></svg>
+          <h3>Hot Tapping</h3>
+        </div>
+        <p>Conexiones en caliente en líneas de gas y crudo, sin interrumpir el servicio ni detener la producción.</p>
+        <span class="constr-hint">Clic para ver detalle <span class="chev">▾</span></span>
+        <div class="constr-detail" id="ct-1">
+          <ul class="check"><li>Aplicable en tuberías de acero al carbono y aleadas, bajo normas ASME B31.3 / B31.4 / B31.8</li>
+          <li>Permite instalar derivaciones y válvulas sin detener el flujo ni la producción</li>
+          <li>Ejecutado por personal certificado, con control de integridad de la línea en todo momento</li></ul>
+        </div>
+      </div>
+
+      <div class="constr-card" data-target="ct-2">
+        <div class="constr-head">
+          <svg viewBox="-30 0 140 140" class="constr-icon"><circle cx="35" cy="70" r="62" fill="#EAF4FA"/><g transform="rotate(-8 25 35)"><rect x="8" y="30" width="34" height="9" rx="4.5" fill="#0099CC"/><circle cx="10" cy="34.5" r="10" fill="none" stroke="#0099CC" stroke-width="4"/></g><g transform="rotate(35 55 60)"><rect x="40" y="55" width="34" height="9" rx="2" fill="#2E3C4E"/><rect x="70" y="52" width="10" height="15" rx="2" fill="#2E3C4E"/></g><circle cx="63" cy="20" r="5" fill="#E8833A"/><circle cx="70" cy="30" r="3" fill="#E8833A" opacity="0.7"/></svg>
+          <h4>Fabricación Mecánica</h4>
+        </div>
+        <p>Spools, componentes a medida y soldadura industrial certificada.</p>
+        <span class="constr-hint">Clic para ver detalle <span class="chev">▾</span></span>
+        <div class="constr-detail" id="ct-2">
+          <ul class="check"><li>Fabricación de spools mecánicos (tubería prefabricada)</li>
+          <li>Fabricación de componentes mecánicos a medida</li>
+          <li>Soldadura industrial certificada</li></ul>
+        </div>
+      </div>
+
+      <div class="constr-card" data-target="ct-3">
+        <div class="constr-head">
+          <svg viewBox="-30 0 140 140" class="constr-icon"><circle cx="35" cy="70" r="62" fill="#E8F5EC"/><circle cx="35" cy="70" r="38" fill="#FFFFFF" stroke="#2E9E5B" stroke-width="4"/><circle cx="35" cy="70" r="14" fill="none" stroke="#2E3C4E" stroke-width="4"/><circle cx="35" cy="70" r="6" fill="#E8F5EC" stroke="#2E3C4E" stroke-width="2"/><circle cx="35" cy="32" r="5" fill="#2E3C4E"/><circle cx="35" cy="108" r="5" fill="#2E3C4E"/><circle cx="-3" cy="70" r="5" fill="#2E3C4E"/><circle cx="73" cy="70" r="5" fill="#2E3C4E"/><circle cx="9" cy="44" r="4" fill="#2E9E5B" opacity="0.7"/><circle cx="61" cy="44" r="4" fill="#2E9E5B" opacity="0.7"/><circle cx="9" cy="96" r="4" fill="#2E9E5B" opacity="0.7"/><circle cx="61" cy="96" r="4" fill="#2E9E5B" opacity="0.7"/></svg>
+          <h4>Instalación y Montaje</h4>
+        </div>
+        <p>Válvulas, bridas y accesorios de tubería instalados en sitio.</p>
+        <span class="constr-hint">Clic para ver detalle <span class="chev">▾</span></span>
+        <div class="constr-detail" id="ct-3">
+          <ul class="check"><li>Instalación de válvulas y bridas</li>
+          <li>Montaje de accesorios de tubería en sitio</li></ul>
+        </div>
+      </div>
+
+      <div class="constr-card" data-target="ct-4">
+        <div class="constr-head">
+          <svg viewBox="-30 0 140 140" class="constr-icon"><circle cx="35" cy="70" r="62" fill="#F1ECF8"/><rect x="8" y="18" width="54" height="94" fill="none" stroke="#7B5EA7" stroke-width="4"/><line x1="8" y1="42" x2="62" y2="42" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="66" x2="62" y2="66" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="90" x2="62" y2="90" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="18" x2="62" y2="42" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="62" y1="18" x2="8" y2="42" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="8" y1="66" x2="62" y2="90" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="62" y1="66" x2="8" y2="90" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="2" y1="112" x2="68" y2="112" stroke="#2E3C4E" stroke-width="4"/></svg>
+          <h4>Infraestructura de Soporte</h4>
+        </div>
+        <p>Postes, casetas de telemetría y equipo de acceso para trabajos en campo.</p>
+        <span class="constr-hint">Clic para ver detalle <span class="chev">▾</span></span>
+        <div class="constr-detail" id="ct-4">
+          <ul class="check"><li>Fabricación e instalación de postes y estructuras metálicas</li>
+          <li>Construcción de casetas de telemetría</li>
+          <li>Alquiler de andamios para trabajos en pozos</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page-group" data-page="contacto">
+<footer id="contacto">
+  <div class="wrap">
+    <div class="eyebrow" style="background:rgba(255,255,255,.14);">Contacto e Información</div>
+    <div class="pill-row" style="margin:18px 0 26px;">
+      <span class="pill">CENTRO COMERCIAL VIRGEN DEL VALLE, LOCAL 67-A</span>
+      <span class="pill">MATURÍN, EDO. MONAGAS</span>
+      <span class="pill">INACOMORIENTE@GMAIL.COM</span>
+    </div>
+    <h2 class="stitle">Conversemos sobre su próximo proyecto</h2>
+    <p class="lede">Inacom Oriente está ubicada en Maturín, Estado Monagas, y a la orden para atender sus necesidades de medición, automatización, informática y comunicaciones.</p>
+
+    <form class="contact-form" id="contactForm" novalidate action="https://formspree.io/f/myeyzlew" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-name">Nombre completo</label>
+          <input type="text" id="cf-name" name="name" placeholder="Su nombre">
+          <small class="form-error"></small>
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Correo electrónico</label>
+          <input type="email" id="cf-email" name="email" placeholder="correo@empresa.com">
+          <small class="form-error"></small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-phone">Teléfono (opcional)</label>
+          <input type="tel" id="cf-phone" name="phone" placeholder="0424-0000000">
+        </div>
+        <div class="form-group">
+          <label for="cf-subject">Asunto</label>
+          <input type="text" id="cf-subject" name="subject" placeholder="Ej. Cotización de medición fiscal">
+          <small class="form-error"></small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cf-message">Mensaje</label>
+        <textarea id="cf-message" name="message" rows="5" placeholder="Cuéntenos sobre su proyecto..."></textarea>
+        <small class="form-error"></small>
+      </div>
+      <button type="submit" class="btn" id="cf-submit" style="border:none;cursor:pointer;font-family:inherit;">Enviar Mensaje</button>
+      <p class="form-success" id="cf-success">✓ ¡Mensaje enviado! Le responderemos a la brevedad.</p>
+      <p class="form-error" id="cf-network-error" style="display:none;">Hubo un problema al enviar. Intente de nuevo o escríbanos directo a inacomoriente@gmail.com</p>
+    </form>
+
+    <div class="foot-bottom">© Inacom Oriente — Soluciones Integrales de Automatización Industrial, Medición, Informática y Comunicaciones</div>
+  </div>
+</footer>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img id="lightboxImg" src="" alt="Vista ampliada">
+</div>
+
+<script>
+(function(){
+  const groups = Array.from(document.querySelectorAll('.page-group'));
+
+  function showPage(pageId, targetSectionId){
+    const current = document.querySelector('.page-group.active');
+    const next = document.querySelector('.page-group[data-page="'+pageId+'"]');
+    if(!next) return;
+    if(current !== next){
+      if(current) current.classList.remove('active');
+      next.classList.add('active');
+    }
+    window.scrollTo({top:0, behavior:'auto'});
+    document.querySelectorAll('nav > ul > li > a').forEach(a=>a.classList.remove('current'));
+    const topLink = document.querySelector('nav > ul > li > a[href="#'+pageId+'"]');
+    if(topLink) topLink.classList.add('current');
+    requestAnimationFrame(()=>{
+      const target = targetSectionId ? document.getElementById(targetSectionId) : null;
+      if(target){
+        const headerH = document.querySelector('header').offsetHeight;
+        const y = target.getBoundingClientRect().top + window.pageYOffset - headerH - 4;
+        window.scrollTo({top:y, behavior:'smooth'});
+      }
+    });
+  }
+
+  function pageOf(sectionId){
+    const el = document.getElementById(sectionId);
+    if(!el) return null;
+    const group = el.closest('.page-group');
+    return group ? group.dataset.page : null;
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const id = a.getAttribute('href').slice(1);
+      const pid = pageOf(id);
+      if(!pid) return; // let default behavior happen if not found
+      e.preventDefault();
+      showPage(pid, id);
+      document.getElementById('navList').classList.remove('open');
+    });
+  });
+
+  document.querySelector('.brand').style.cursor = 'pointer';
+  document.querySelector('.brand').addEventListener('click', ()=> showPage('inicio', null));
+
+  document.getElementById('menuBtn').addEventListener('click', ()=>{
+    document.getElementById('navList').classList.toggle('open');
+  });
+
+// ===== Animated counters =====
+(function(){
+  function animateCount(el){
+    const raw = el.dataset.final;
+    const m = raw.match(/^(\D*)(\d+)(\D*)$/);
+    if(!m){ el.textContent = raw; return; }
+    const prefix = m[1], target = parseInt(m[2],10), suffix = m[3];
+    const dur = 1100;
+    const start = performance.now();
+    function step(now){
+      const p = Math.min((now-start)/dur, 1);
+      const eased = 1 - Math.pow(1-p, 3);
+      el.textContent = prefix + Math.round(eased*target) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const counters = document.querySelectorAll('.count-num');
+  const seen = new WeakSet();
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && !seen.has(e.target)){
+        seen.add(e.target);
+        animateCount(e.target);
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.4});
+  counters.forEach(c=>obs.observe(c));
+})();
+
+// ===== Interactive ISO pyramid =====
+(function(){
+  const bands = document.querySelectorAll('#isoPyramid .pyr-band');
+  const panel = document.getElementById('pyrDetailPanel');
+  if(!bands.length || !panel) return;
+  bands.forEach(band=>{
+    band.addEventListener('click', ()=>{
+      bands.forEach(b=>b.classList.remove('pyr-active'));
+      band.classList.add('pyr-active');
+      const title = band.querySelector('b') ? band.querySelector('b').textContent : '';
+      const detail = band.dataset.detail || '';
+      panel.style.opacity = 0;
+      setTimeout(()=>{
+        panel.innerHTML = '<h5>'+title+'</h5><p>'+detail+'</p>';
+        panel.style.opacity = 1;
+      }, 120);
+    });
+  });
+})();
+
+// ===== Project filter =====
+(function(){
+  const buttons = document.querySelectorAll('#projectFilters .filter-btn');
+  const stops = document.querySelectorAll('#timelineRow .tstop');
+  if(!buttons.length) return;
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      stops.forEach(stop=>{
+        const match = (filter === 'all' || stop.dataset.cat === filter);
+        if(match){
+          stop.classList.remove('tstop-hidden');
+          stop.classList.add('tstop-show');
+        } else {
+          stop.classList.add('tstop-hidden');
+          stop.classList.remove('tstop-show');
+        }
+      });
+    });
+  });
+})();
+
+// ===== Contact form validation =====
+(function(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  const fields = {
+    name:    { el: document.getElementById('cf-name'),    test: v => v.trim().length >= 3,  msg: 'Ingrese su nombre completo (mínimo 3 letras)' },
+    email:   { el: document.getElementById('cf-email'),   test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Ingrese un correo electrónico válido' },
+    subject: { el: document.getElementById('cf-subject'), test: v => v.trim().length >= 4,  msg: 'Cuéntenos brevemente el asunto' },
+    message: { el: document.getElementById('cf-message'), test: v => v.trim().length >= 10, msg: 'El mensaje debe tener al menos 10 caracteres' }
+  };
+
+  function validateField(key){
+    const f = fields[key];
+    const errorEl = f.el.parentElement.querySelector('.form-error');
+    const ok = f.test(f.el.value);
+    f.el.classList.toggle('field-invalid', !ok && f.el.value.length > 0);
+    f.el.classList.toggle('field-valid', ok);
+    if(errorEl) errorEl.textContent = (!ok && f.el.value.length > 0) ? f.msg : '';
+    return ok;
+  }
+
+  Object.keys(fields).forEach(key=>{
+    const el = fields[key].el;
+    if(!el) return;
+    el.addEventListener('input', ()=> validateField(key));
+    el.addEventListener('blur', ()=> validateField(key));
+  });
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let allValid = true;
+    Object.keys(fields).forEach(key=>{ if(!validateField(key)) allValid = false; });
+    if(!allValid){
+      const firstInvalid = form.querySelector('.field-invalid');
+      if(firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    const successEl = document.getElementById('cf-success');
+    const networkErrorEl = document.getElementById('cf-network-error');
+    const submitBtn = document.getElementById('cf-submit');
+    if(networkErrorEl) networkErrorEl.style.display = 'none';
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Enviando...'; }
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if(response.ok){
+        if(successEl) successEl.classList.add('show');
+        form.reset();
+        Object.keys(fields).forEach(key=>{
+          fields[key].el.classList.remove('field-valid','field-invalid');
+        });
+      } else {
+        if(networkErrorEl) networkErrorEl.style.display = 'block';
+      }
+    }).catch(() => {
+      if(networkErrorEl) networkErrorEl.style.display = 'block';
+    }).finally(() => {
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Enviar Mensaje'; }
+    });
+  });
+})();
+
+// ===== Gallery zoom lightbox =====
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  if(!lightbox) return;
+  document.querySelectorAll('img.zoomable').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
+  function closeLightbox(){ lightbox.classList.remove('active'); lightboxImg.src=''; }
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+})();
+
+// ===== Scroll reveal animations =====
+(function(){
+  document.querySelectorAll('.page-group section, .page-group footer').forEach(s=>s.classList.add('reveal'));
+  const revealObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('revealed');
+      }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+})();
+
+
+// ===== Construccion interactive cards (zoom detail) =====
+(function(){
+  document.querySelectorAll('.constr-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      const targetId = card.dataset.target;
+      const detail = document.getElementById(targetId);
+      if(!detail) return;
+      const isShown = detail.classList.contains('show');
+      // close all others
+      document.querySelectorAll('.constr-detail.show').forEach(d=>d.classList.remove('show'));
+      document.querySelectorAll('.constr-card.expanded').forEach(c=>c.classList.remove('expanded'));
+      if(!isShown){
+        detail.classList.add('show');
+        card.classList.add('expanded');
+      }
+    });
+  });
+})();
+
+})();
+</script>
+</body>
+</html>
