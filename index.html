@@ -279,6 +279,34 @@ footer .lede{color:rgba(255,255,255,.82);}
 .constr-card.constr-fill .constr-detail li::before{background:rgba(255,255,255,.7);}
 @keyframes constrZoom{from{opacity:0;transform:scale(.82);}to{opacity:1;transform:scale(1);}}
 
+
+/* Simulator */
+.sim-wrap{max-width:900px;margin:56px auto 0;padding-top:40px;border-top:1px solid var(--line);}
+.sim-title{font-family:var(--f-disp);font-weight:800;font-size:24px;color:var(--title);margin-bottom:10px;}
+.sim-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.sim-tab{font-family:var(--f-body);font-size:13px;font-weight:600;padding:11px 18px;border-radius:9px;border:1.5px solid var(--line);background:var(--white);color:var(--body);cursor:pointer;transition:all .15s;}
+.sim-tab:hover{border-color:var(--accent);color:var(--accent);}
+.sim-tab.active{background:var(--title);border-color:var(--title);color:var(--white);}
+.sim-panel{display:none;}
+.sim-panel.active{display:block;animation:fadeInUp .3s ease;}
+.sim-grid{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start;}
+.sim-controls{display:flex;flex-direction:column;gap:20px;}
+.sim-field label{display:block;font-size:12.5px;font-weight:600;color:var(--title);margin-bottom:8px;}
+.sim-field label b{color:var(--accent);font-family:var(--f-disp);}
+.sim-field input[type="range"]{width:100%;accent-color:var(--accent);height:6px;cursor:pointer;}
+.sim-readout{margin-top:6px;display:flex;flex-direction:column;gap:10px;}
+.sim-readout-item{background:#F7FAFC;border:1px solid var(--line);border-radius:9px;padding:12px 14px;}
+.sim-readout-item span{display:block;font-size:10.5px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px;}
+.sim-readout-item b{font-family:var(--f-disp);font-size:18px;color:var(--title);}
+.sim-chart-box{background:#FFFFFF;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;justify-content:center;}
+.sim-chart-box canvas{max-width:100%;height:auto;}
+.sim-footnote{font-size:11.5px;color:var(--faint);margin-top:16px;line-height:1.6;}
+.sim-decline-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap;}
+#btn-run-ai{padding:13px 24px;}
+@media(max-width:760px){
+  .sim-grid{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 <body>
@@ -592,6 +620,59 @@ footer .lede{color:rgba(255,255,255,.82);}
     <div style="max-width:520px;margin:32px auto 0;">
       <div class="photo-frame"><img class="zoomable" src="assets/img-10.jpg" alt="Pirámide de gerencia del dato de medición fiscal: obtención, transporte y almacenamiento, procesamiento y validación, gerencia del dato"><span class="zoom-hint">&#128269; Clic para ampliar</span></div>
       <p class="photo-cap" style="font-size:12px;color:var(--faint);margin-top:8px;text-align:center;">El dato de campo recorre cuatro etapas hasta convertirse en decisión estratégica — infraestructura que sostiene la integración PI/CIOC y el módulo VFPM.</p>
+    </div>
+
+    <div class="sim-wrap">
+      <div class="eyebrow light" style="margin-bottom:14px;">Demostración Interactiva</div>
+      <h3 class="sim-title">Simulador de Optimización de Pozos</h3>
+      <p class="lede" style="margin-bottom:22px;">Pruebe en vivo el tipo de análisis que alimenta nuestro módulo VFPM — basado en correlaciones reales de ingeniería de yacimientos.</p>
+
+      <div class="sim-tabs">
+        <button class="sim-tab active" data-sim="ipr">Curva IPR del Pozo (Vogel)</button>
+        <button class="sim-tab" data-sim="decline">Comparador de Producción IA</button>
+      </div>
+
+      <!-- Panel 1: IPR Simulator -->
+      <div class="sim-panel active" id="sim-ipr">
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <div class="sim-field">
+              <label>Presión de Yacimiento (Pr) <b id="val-pr">3200</b> psi</label>
+              <input type="range" id="ctl-pr" min="1500" max="5000" step="50" value="3200">
+            </div>
+            <div class="sim-field">
+              <label>Potencial Máximo del Pozo (AOF) <b id="val-qmax">850</b> bbl/d</label>
+              <input type="range" id="ctl-qmax" min="200" max="2000" step="25" value="850">
+            </div>
+            <div class="sim-field">
+              <label>Corte de Agua (BSW) <b id="val-bsw">15</b>%</label>
+              <input type="range" id="ctl-bsw" min="0" max="80" step="1" value="15">
+            </div>
+            <div class="sim-readout">
+              <div class="sim-readout-item"><span>Tasa a Punto Sugerido</span><b id="out-qsuggested">—</b></div>
+              <div class="sim-readout-item"><span>Presión de Fondo Óptima</span><b id="out-pwf">—</b></div>
+            </div>
+          </div>
+          <div class="sim-chart-box">
+            <canvas id="chart-ipr" width="560" height="360"></canvas>
+          </div>
+        </div>
+        <p class="sim-footnote">Curva calculada con la ecuación de Vogel (1968) para pozos de empuje por gas en solución. El "punto sugerido" ilustra una región de operación eficiente entre caudal y presión de fondo — no sustituye un análisis nodal completo.</p>
+      </div>
+
+      <!-- Panel 2: Decline comparison -->
+      <div class="sim-panel" id="sim-decline">
+        <div class="sim-decline-top">
+          <button class="btn" id="btn-run-ai" style="border:none;cursor:pointer;font-family:inherit;">▶ Simular Optimización IA</button>
+          <div class="sim-readout" style="margin-top:0;">
+            <div class="sim-readout-item"><span>Mejora en Producción Acumulada</span><b id="out-improvement">—</b></div>
+          </div>
+        </div>
+        <div class="sim-chart-box" style="max-width:100%;">
+          <canvas id="chart-decline" width="900" height="380"></canvas>
+        </div>
+        <p class="sim-footnote">Simulación ilustrativa de declinación de producción (modelo exponencial de Arps) comparando un pozo sin intervención frente a un escenario con ajuste optimizado de gas lift y choke sugerido por IA.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1104,6 +1185,197 @@ footer .lede{color:rgba(255,255,255,.82);}
       }
     });
   });
+})();
+
+
+// ===== Well Optimization Simulators =====
+(function(){
+  const simTabs = document.querySelectorAll('.sim-tab');
+  if(!simTabs.length) return;
+
+  simTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      simTabs.forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.sim-panel').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('sim-' + tab.dataset.sim).classList.add('active');
+    });
+  });
+
+  // ---- Vogel IPR ----
+  function vogelQo(pwf, pr, qmax){
+    const r = pwf / pr;
+    return qmax * (1 - 0.2*r - 0.8*r*r);
+  }
+
+  function drawIPR(){
+    const canvas = document.getElementById('chart-ipr');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    const pr = parseFloat(document.getElementById('ctl-pr').value);
+    const qmax = parseFloat(document.getElementById('ctl-qmax').value);
+    const bsw = parseFloat(document.getElementById('ctl-bsw').value);
+    document.getElementById('val-pr').textContent = pr;
+    document.getElementById('val-qmax').textContent = qmax;
+    document.getElementById('val-bsw').textContent = bsw;
+
+    const mL=60, mB=45, mT=20, mR=20;
+    const pW = W-mL-mR, pH = H-mT-mB;
+
+    ctx.strokeStyle = '#BACFDD'; ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(mL, mT); ctx.lineTo(mL, H-mB); ctx.lineTo(W-mR, H-mB);
+    ctx.stroke();
+
+    ctx.fillStyle = '#384653'; ctx.font = '11px Barlow, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('Caudal de Petróleo (bbl/d)', mL+pW/2, H-8);
+    ctx.save(); ctx.translate(14, mT+pH/2); ctx.rotate(-Math.PI/2);
+    ctx.fillText('Presión de Fondo (psi)', 0, 0); ctx.restore();
+
+    ctx.font = '9.5px Barlow, sans-serif';
+    for(let i=0;i<=4;i++){
+      const yv = pr*i/4, y = H-mB-(yv/pr)*pH;
+      ctx.strokeStyle = '#EEF3F6';
+      ctx.beginPath(); ctx.moveTo(mL,y); ctx.lineTo(W-mR,y); ctx.stroke();
+      ctx.fillStyle = '#7C8B96'; ctx.textAlign = 'right';
+      ctx.fillText(Math.round(yv), mL-8, y+3);
+    }
+    for(let i=0;i<=4;i++){
+      const xv = qmax*i/4, x = mL+(xv/qmax)*pW;
+      ctx.fillStyle = '#7C8B96'; ctx.textAlign = 'center';
+      ctx.fillText(Math.round(xv), x, H-mB+16);
+    }
+
+    const N=60;
+    ctx.strokeStyle = '#0099CC'; ctx.lineWidth = 3; ctx.beginPath();
+    for(let i=0;i<=N;i++){
+      const pwf = pr*(1-i/N), qo = vogelQo(pwf, pr, qmax);
+      const x = mL+(qo/qmax)*pW, y = H-mB-(pwf/pr)*pH;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+
+    ctx.strokeStyle = '#7B5EA7'; ctx.setLineDash([5,4]); ctx.lineWidth = 2; ctx.beginPath();
+    for(let i=0;i<=N;i++){
+      const pwf = pr*(1-i/N), qoNet = vogelQo(pwf, pr, qmax)*(1-bsw/100);
+      const x = mL+(qoNet/qmax)*pW, y = H-mB-(pwf/pr)*pH;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+
+    const pwfSug = pr*0.4, qoSug = vogelQo(pwfSug, pr, qmax);
+    const xSug = mL+(qoSug/qmax)*pW, ySug = H-mB-(pwfSug/pr)*pH;
+    ctx.fillStyle = '#E8833A'; ctx.beginPath(); ctx.arc(xSug, ySug, 6, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
+
+    document.getElementById('out-qsuggested').textContent = Math.round(qoSug)+' bbl/d';
+    document.getElementById('out-pwf').textContent = Math.round(pwfSug)+' psi';
+
+    ctx.font = '10.5px Barlow, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#0099CC'; ctx.fillRect(mL, mT-4, 12, 3);
+    ctx.fillStyle = '#384653'; ctx.fillText('Producción Bruta', mL+16, mT);
+    ctx.fillStyle = '#7B5EA7'; ctx.fillRect(mL+150, mT-4, 12, 3);
+    ctx.fillStyle = '#384653'; ctx.fillText('Neta de Agua', mL+166, mT);
+  }
+
+  ['ctl-pr','ctl-qmax','ctl-bsw'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('input', drawIPR);
+  });
+  drawIPR();
+
+  // ---- Decline comparison ----
+  function declineQ(qi, di, t){ return qi*Math.exp(-di*t); }
+  let declineParams = null;
+
+  function drawDeclineBase(){
+    const canvas = document.getElementById('chart-decline');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W=canvas.width, H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    const mL=70, mB=50, mT=30, mR=30;
+    const pW=W-mL-mR, pH=H-mT-mB;
+    const months=24, qi=500, diBase=0.09, diAI=0.045, maxQ=qi*1.05;
+
+    ctx.strokeStyle='#BACFDD'; ctx.lineWidth=1.5; ctx.beginPath();
+    ctx.moveTo(mL,mT); ctx.lineTo(mL,H-mB); ctx.lineTo(W-mR,H-mB); ctx.stroke();
+
+    ctx.fillStyle='#384653'; ctx.font='12px Barlow, sans-serif'; ctx.textAlign='center';
+    ctx.fillText('Meses', mL+pW/2, H-10);
+    ctx.save(); ctx.translate(16, mT+pH/2); ctx.rotate(-Math.PI/2);
+    ctx.fillText('Producción (bbl/d)', 0, 0); ctx.restore();
+
+    ctx.font='10px Barlow, sans-serif';
+    for(let i=0;i<=5;i++){
+      const yv=maxQ*i/5, y=H-mB-(yv/maxQ)*pH;
+      ctx.strokeStyle='#EEF3F6'; ctx.beginPath(); ctx.moveTo(mL,y); ctx.lineTo(W-mR,y); ctx.stroke();
+      ctx.fillStyle='#7C8B96'; ctx.textAlign='right'; ctx.fillText(Math.round(yv), mL-8, y+3);
+    }
+    for(let m=0;m<=months;m+=4){
+      const x=mL+(m/months)*pW;
+      ctx.fillStyle='#7C8B96'; ctx.textAlign='center'; ctx.fillText(m, x, H-mB+16);
+    }
+
+    ctx.strokeStyle='#7C8B96'; ctx.lineWidth=3; ctx.beginPath();
+    for(let m=0;m<=months;m++){
+      const q=declineQ(qi,diBase,m), x=mL+(m/months)*pW, y=H-mB-(q/maxQ)*pH;
+      if(m===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle='#7C8B96'; ctx.fillRect(mL, mT-14, 14, 3);
+    ctx.fillStyle='#384653'; ctx.font='11px Barlow, sans-serif'; ctx.textAlign='left';
+    ctx.fillText('Sin intervención', mL+18, mT-10);
+
+    declineParams = {qi,diBase,diAI,months,maxQ,mL,mB,mT,mR,pW,pH,W,H};
+  }
+  drawDeclineBase();
+
+  function animateAICurve(){
+    if(!declineParams) return;
+    const p = declineParams;
+    const canvas = document.getElementById('chart-decline');
+    const ctx = canvas.getContext('2d');
+    let frame = 0; const totalFrames = 50;
+
+    function step(){
+      frame++;
+      const progMonths = (frame/totalFrames)*p.months;
+      drawDeclineBase();
+      const p2 = declineParams;
+      ctx.strokeStyle='#0099CC'; ctx.lineWidth=3; ctx.beginPath();
+      const steps = Math.max(1, progMonths);
+      for(let m=0;m<=steps;m++){
+        const q=declineQ(p2.qi,p2.diAI,m), x=p2.mL+(m/p2.months)*p2.pW, y=p2.H-p2.mB-(q/p2.maxQ)*p2.pH;
+        if(m===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+      ctx.fillStyle='#0099CC'; ctx.fillRect(p2.mL+160, p2.mT-14, 14, 3);
+      ctx.fillStyle='#384653'; ctx.font='11px Barlow, sans-serif'; ctx.textAlign='left';
+      ctx.fillText('Optimizado con IA', p2.mL+178, p2.mT-10);
+
+      if(frame < totalFrames){
+        requestAnimationFrame(step);
+      } else {
+        let cumBase=0, cumAI=0;
+        for(let m=0;m<=p.months;m++){
+          cumBase += declineQ(p.qi,p.diBase,m);
+          cumAI += declineQ(p.qi,p.diAI,m);
+        }
+        const improvement = ((cumAI-cumBase)/cumBase*100).toFixed(1);
+        document.getElementById('out-improvement').textContent = '+'+improvement+'%';
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  const btnRun = document.getElementById('btn-run-ai');
+  if(btnRun) btnRun.addEventListener('click', animateAICurve);
 })();
 
 })();
