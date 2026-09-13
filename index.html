@@ -307,6 +307,15 @@ footer .lede{color:rgba(255,255,255,.82);}
   .sim-grid{grid-template-columns:1fr;}
 }
 
+
+/* Featured services banner */
+.feat-card{display:flex;flex-direction:column;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 22px;text-decoration:none;transition:box-shadow .2s, transform .2s;}
+.feat-card:hover{box-shadow:0 10px 26px rgba(30,50,70,.12);transform:translateY(-3px);}
+.feat-icon{width:52px;height:52px;margin-bottom:14px;}
+.feat-card h4{font-family:var(--f-disp);font-size:15.5px;font-weight:700;color:var(--title);margin-bottom:8px;}
+.feat-card p{font-size:12.5px;color:var(--body);margin-bottom:14px;line-height:1.5;}
+.feat-link{font-size:12px;font-weight:700;color:var(--accent);}
+
 </style>
 </head>
 <body>
@@ -368,6 +377,40 @@ footer .lede{color:rgba(255,255,255,.82);}
       <div class="stat"><b class="count-num" data-final="+20">0</b><span>PROYECTOS EJECUTADOS</span></div>
       <div class="stat"><b class="count-num" data-final="5">0</b><span>ÁREAS DE ESPECIALIZACIÓN</span></div>
       <div class="stat"><b class="count-num" data-final="2">0</b><span>ESTADOS: ANZOÁTEGUI Y MONAGAS</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="destacados">
+  <div class="wrap">
+    <div class="eyebrow light">Lo Que Hacemos</div>
+    <h2 class="stitle">Servicios Destacados</h2>
+    <p class="lede">Un vistazo rápido a nuestras principales líneas de servicio — haga clic en cualquiera para ver el detalle completo.</p>
+    <div class="grid g4">
+      <a href="#medicion-sistemas" class="feat-card">
+        <svg viewBox="-30 0 140 140" class="feat-icon"><circle cx="35" cy="70" r="62" fill="#EAF4FA"/><rect x="5" y="56" width="70" height="16" rx="4" fill="none" stroke="#0099CC" stroke-width="4"/><rect x="20" y="30" width="30" height="38" rx="4" fill="#FFFFFF" stroke="#2E3C4E" stroke-width="4"/><line x1="26" y1="40" x2="44" y2="40" stroke="#2E3C4E" stroke-width="2"/><line x1="26" y1="50" x2="44" y2="50" stroke="#2E3C4E" stroke-width="2"/></svg>
+        <h4>Sistemas de Medición</h4>
+        <p>Medición fiscal y referencial de crudo y gas, bajo normas API/AGA.</p>
+        <span class="feat-link">Ver más →</span>
+      </a>
+      <a href="#card-andamios" class="feat-card">
+        <svg viewBox="-30 0 140 140" class="feat-icon"><circle cx="35" cy="70" r="62" fill="#F1ECF8"/><rect x="8" y="18" width="54" height="94" fill="none" stroke="#7B5EA7" stroke-width="4"/><line x1="8" y1="42" x2="62" y2="42" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="66" x2="62" y2="66" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="90" x2="62" y2="90" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="18" x2="62" y2="42" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="62" y1="18" x2="8" y2="42" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="2" y1="112" x2="68" y2="112" stroke="#2E3C4E" stroke-width="4"/></svg>
+        <h4>Andamios para Pozos</h4>
+        <p>Alquiler de andamios y estructuras de acceso para trabajos en campo.</p>
+        <span class="feat-link">Ver más →</span>
+      </a>
+      <a href="#automatizacion" class="feat-card">
+        <svg viewBox="-30 0 140 140" class="feat-icon"><circle cx="35" cy="70" r="62" fill="#EAF4FA"/><circle cx="35" cy="70" r="34" fill="none" stroke="#0099CC" stroke-width="7"/><line x1="35" y1="70" x2="52" y2="55" stroke="#2E3C4E" stroke-width="6" stroke-linecap="round"/><circle cx="35" cy="70" r="6" fill="#2E3C4E"/></svg>
+        <h4>Automatización de Pozos</h4>
+        <p>Control remoto de válvulas, RTU/PLC y supervisión SCADA en tiempo real.</p>
+        <span class="feat-link">Ver más →</span>
+      </a>
+      <a href="#card-hottapping" class="feat-card">
+        <svg viewBox="-30 0 140 140" class="feat-icon"><circle cx="35" cy="70" r="62" fill="#FDF1E4"/><rect x="-15" y="90" width="100" height="26" rx="5" fill="none" stroke="#E8833A" stroke-width="4"/><rect x="20" y="40" width="30" height="52" rx="4" fill="#FFFFFF" stroke="#2E3C4E" stroke-width="4"/><line x1="35" y1="40" x2="35" y2="24" stroke="#2E3C4E" stroke-width="4"/><circle cx="35" cy="20" r="6" fill="#E8833A"/></svg>
+        <h4>Hot Tapping</h4>
+        <p>Conexiones en caliente en líneas de gas y crudo, sin detener la producción.</p>
+        <span class="feat-link">Ver más →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -829,7 +872,7 @@ footer .lede{color:rgba(255,255,255,.82);}
     <h2 class="stitle">Construcción y fabricación mecánica</h2>
     <p class="lede">Servicios de fabricación, instalación y construcción mecánica para infraestructura de campo en la industria de petróleo y gas.</p>
     <div class="grid g2">
-      <div class="constr-card" data-target="ct-1">
+      <div class="constr-card" id="card-hottapping" data-target="ct-1">
         <div class="constr-head">
           <svg viewBox="-30 0 140 140" class="constr-icon"><circle cx="35" cy="70" r="62" fill="#FDF1E4"/><rect x="-15" y="90" width="100" height="26" rx="5" fill="none" stroke="#E8833A" stroke-width="4"/><line x1="-5" y1="95" x2="-5" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="10" y1="95" x2="10" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="25" y1="95" x2="25" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="55" y1="95" x2="55" y2="111" stroke="#E8833A" stroke-width="1.5"/><line x1="70" y1="95" x2="70" y2="111" stroke="#E8833A" stroke-width="1.5"/><rect x="20" y="40" width="30" height="52" rx="4" fill="#FFFFFF" stroke="#2E3C4E" stroke-width="4"/><line x1="26" y1="50" x2="44" y2="50" stroke="#2E3C4E" stroke-width="2"/><line x1="26" y1="60" x2="44" y2="60" stroke="#2E3C4E" stroke-width="2"/><line x1="35" y1="40" x2="35" y2="24" stroke="#2E3C4E" stroke-width="4"/><circle cx="35" cy="20" r="6" fill="#E8833A"/><circle cx="35" cy="20" r="10" fill="none" stroke="#E8833A" stroke-width="2" opacity="0.5"/><path d="M35 92 L35 108" stroke="#2E3C4E" stroke-width="4"/><circle cx="35" cy="112" r="5" fill="none" stroke="#2E3C4E" stroke-width="3"/></svg>
           <h3>Hot Tapping</h3>
@@ -870,7 +913,7 @@ footer .lede{color:rgba(255,255,255,.82);}
         </div>
       </div>
 
-      <div class="constr-card" data-target="ct-4">
+      <div class="constr-card" id="card-andamios" data-target="ct-4">
         <div class="constr-head">
           <svg viewBox="-30 0 140 140" class="constr-icon"><circle cx="35" cy="70" r="62" fill="#F1ECF8"/><rect x="8" y="18" width="54" height="94" fill="none" stroke="#7B5EA7" stroke-width="4"/><line x1="8" y1="42" x2="62" y2="42" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="66" x2="62" y2="66" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="90" x2="62" y2="90" stroke="#7B5EA7" stroke-width="3.5"/><line x1="8" y1="18" x2="62" y2="42" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="62" y1="18" x2="8" y2="42" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="8" y1="66" x2="62" y2="90" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="62" y1="66" x2="8" y2="90" stroke="#2E3C4E" stroke-width="2" opacity="0.55"/><line x1="2" y1="112" x2="68" y2="112" stroke="#2E3C4E" stroke-width="4"/></svg>
           <h4>Infraestructura de Soporte</h4>
